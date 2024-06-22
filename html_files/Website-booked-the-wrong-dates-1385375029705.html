@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website booked the wrong dates</title>
+</head>
+<body>
+    <h1>Website booked the wrong dates</h1>
+    <div>Issue customer received Website booked the wrong dates Customer thinks the website booked the wrong dates. (Website basket actually contains exactly what it ends up booking, customer should be a little more observant, however, there are potential issues listed below) It&#39;s either 1 of 6 issues 1) INC0005086 - (Changing outbound weekly date impacts inbound date) Perform a search, London to Paris, 1x Adult, Outbound 10/7 Inbound 10/7 1) Select the Outbound train - 10/7 @ 05:40 2) Visit Inbound page (don&#39;t select any train) 3) Use back button / click back on Outbound leg 4) Click on Thurs 11th Jul in the weekly view 5) Click on Wed 10th Jul in the weekly view 6) Click Continue (without selecting a train as you already have the 05:40 in your basket) 7) On the Inbound page the date is now defaulted to Thurs 11th Jul Customer never notices it&#39;s switched from the 10th to the 11th and books the wrong dates. It seems the system automatically moves the inbound date to make sure it is equal or greater than the outbound date (which makes sense) but once you select a date beyond the inbound date it gets changed to be equal but never reverts back if you then change your outbound date back. We have an example of this exact scenario happening on PNR: SDKIBT MORE EXAMPLES NEEDED NO FIX FOUND 2) INC0005193 - (My Itinerary - Clicking on the outbound leg stations results in the date jumping) Start a booking Select any outbound train and continue. On the Travel Extras page, in the Right Side My Itinerary column click on the stations displayed in white which will take you back to the Outbound leg section. On the outbound leg section the date will not be what you originally selected. CLOSED FIXED IN RELEASE 1</div>
+</body>
+</html>

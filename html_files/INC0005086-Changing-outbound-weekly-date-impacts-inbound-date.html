@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INC0005086 Changing outbound weekly date impacts inbound date</title>
+</head>
+<body>
+    <h1>INC0005086 Changing outbound weekly date impacts inbound date</h1>
+    <div><div>
+	Perform a search, London to Paris, 1x Adult, Outbound 10/7  Inbound 10/7</div>
+<div>
+	 </div>
+<div>
+	1) Select the Outbound train - 10/7 @ 05:40</div>
+<div>
+	2) Visit Inbound page (don&#39;t select any train)</div>
+<div>
+	3) Use back button / click back on Outbound leg</div>
+<div>
+	4) Click on Thurs 11th Jul in the weekly view</div>
+<div>
+	5) Click on Wed 10th Jul in the weekly view</div>
+<div>
+	6) Click Continue (without selecting a train as you already have the 05:40 in your basket)</div>
+<div>
+	7) On the Inbound page the date is now defaulted to Thurs 11th Jul</div>
+<div>
+	Customer never notices it&#39;s switched from the 10th to the 11th and books the wrong dates.</div>
+<div>
+	 </div>
+<div>
+	It seems the system automatically moves the inbound date to make sure it is equal or greater than the outbound date (which makes sense) but once you select a date beyond the inbound date it gets changed to be equal but never reverts back if you then change your outbound date back.</div>
+<div>
+	 </div>
+<div>
+	We have an example of this exact scenario happening on PNR: SDKIBT<br>	<br>	<span style="color: #0000ff;"><strong>MORE EXAMPLES NEEDED : NONE</strong></span></div></div>
+</body>
+</html>
