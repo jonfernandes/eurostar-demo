@@ -10,14 +10,15 @@ Build a chatbot powered by LlamaIndex that augments GPT 3.5 with the contents of
 ![Distribution of number of tokens (percentages)](images/num_tokens_percentage.PNG)
 
 ### Chunking
-Instead of trying to implement a complicated chunking strategy (e.g. splitting by every paragraph), given the distribution of the number of tokens in each of the files (95%+ is less than 1000 tokens), a sensible approach would be:
+Instead of trying to implement a complicated chunking strategy (e.g. splitting by every logical section / paragraph), given the distribution of the number of tokens in each of the files (95%+ is less than 1000 tokens), a sensible approach would be:
 - Chunk data at 1000 tokens with an overlap of 200.
-- 
+- Chunk data at 6000 tokens. Many embedding models have a context length of 8192 so viable.
+
+## Results of unit testing
+
+## Future development
+
 ## Demo App
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://llamaindex-chat-with-docs.streamlit.app/)
-
-
-## Try out the app
-
 Once the app is loaded, enter your question about the Streamlit library and wait for a response.
+![Eurostar App](https://update this.streamlit.app/)
