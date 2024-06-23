@@ -6,8 +6,8 @@ Build a chatbot powered by LlamaIndex that augments GPT 3.5 with the contents of
 - Removed all files with titles starting "ILOYAL*", "PSP*", "INC*", "EURO*", "SBE*" as they were not relevant to a customer-facing knowledge base
 - Calculated the number of tokens for the messages and got the following distribution
 
-[![Distribution of number of tokens](images/num_tokens_histogram.png)]
-[![Distribution of number of tokens (percentages)](images/num_tokens_percentage.PNG)]
+![Distribution of number of tokens](images/num_tokens_histogram.png)
+![Distribution of number of tokens (percentages)](images/num_tokens_percentage.PNG)
 
 ### Chunking
 Instead of trying to implement a complicated chunking strategy (e.g. splitting by every paragraph), given the distribution of the number of tokens in each of the files (95%+ is less than 1000 tokens), a sensible approach would be:
