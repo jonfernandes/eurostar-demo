@@ -15,6 +15,7 @@ Instead of trying to implement a complicated chunking strategy (e.g. splitting b
 - Chunk data at 6000 tokens. Many embedding models have a context length of 8192 so viable.
 
 ## Results of unit testing
+![Unit testing doc](https://docs.google.com/spreadsheets/d/1UQ3cscKfnj9avwbkEuib7aXN5C7Y8gbDuYo3H_mDa2Q/edit?usp=sharing)
 
 ## Future development
 
