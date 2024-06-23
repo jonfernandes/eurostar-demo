@@ -29,7 +29,9 @@ def load_data():
                                                         embed_model=embed_model, 
                                                         chunk_size=1024, 
                                                         chunk_overlap=200)
-        index = VectorStoreIndex.from_documents(docs, service_context=service_context)
+        index = VectorStoreIndex.from_documents(docs, 
+                                                service_context=service_context,
+                                                text_splitter=text_splitter)
         return index
 
 index = load_data()
