@@ -1,5 +1,7 @@
 # Eurostar demo
-Build a chatbot powered by LlamaIndex that augments GPT 3.5 with the contents of the Streamlit docs (or your own data).
+https://eurostar.streamlit.app/
+
+Once the app is loaded, enter your question about Eurostar and wait for a response.
 
 ## Pre-processing
 - Excel document converted to html files
@@ -15,11 +17,15 @@ Instead of trying to implement a complicated chunking strategy (e.g. splitting b
 - Chunk data at 6000 tokens. Many embedding models have a context length of 8192 so viable.
 
 ## Results of unit testing
-![Unit testing doc](https://docs.google.com/spreadsheets/d/1UQ3cscKfnj9avwbkEuib7aXN5C7Y8gbDuYo3H_mDa2Q/edit?usp=sharing)
+https://docs.google.com/spreadsheets/d/1UQ3cscKfnj9avwbkEuib7aXN5C7Y8gbDuYo3H_mDa2Q/edit?usp=sharing
 
 ## Future development
+- Query processing
+    - Checks to see if there is any PII or content that violates policy
+    - Caching of previous FAQ
+- Post-retrieval
+    - Rerankers to improve on results
+- Post-completion
+    - Policy check
+    - Fact checking
 
-## Demo App
-
-Once the app is loaded, enter your question about the Streamlit library and wait for a response.
-![Eurostar App](https://update this.streamlit.app/)

@@ -10,7 +10,7 @@ openai.api_key = st.secrets.OPENAI_KEY
 st.title("Hello, I am the Eurostar Bot 🤖.")
 st.info("To protect your privacy, please don’t mention any personal information unless I ask you specifically.")
          
-if "messages" not in st.session_state.keys(): # Initialize the chat messages history
+if "messages" not in st.session_state.keys(): 
     st.session_state.messages = [
         {"role": "assistant", "content": "Write a message ..."}
     ]
@@ -48,9 +48,9 @@ for message in st.session_state.messages:
 
 if st.session_state.messages[-1]["role"] != "assistant":
     with st.chat_message("assistant"):
-        with st.spinner("Thinking..."):
+        with st.spinner("Retrieving data ..."):
             response = st.session_state.chat_engine.chat(prompt)
             print(f"response-> {response}")
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
-            st.session_state.messages.append(message) # Add response to message history
+            st.session_state.messages.append(message) 
