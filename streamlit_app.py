@@ -58,6 +58,6 @@ if st.session_state.messages[-1]["role"] != "assistant":
             print(f"metadata-> {response.source_nodes[1].metadata['file_name']}")
             metadata = response.source_nodes[0].metadata['file_name']
             metadata2 = response.source_nodes[1].metadata['file_name']
-            st.write(f"{response.response}  \n\n[{metadata}](https://jonfernandes.github.io/eurostar/{metadata})  \n[{metadata2}](https://jonfernandes.github.io/eurostar/{metadata2})")
+            st.write(f"{response.response}  \n\n**Data source:**  \n[1] [{metadata}](https://jonfernandes.github.io/eurostar/{metadata})  \n[2] [{metadata2}](https://jonfernandes.github.io/eurostar/{metadata2})")
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) 
