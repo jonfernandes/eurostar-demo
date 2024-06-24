@@ -17,7 +17,7 @@ if "messages" not in st.session_state.keys():
 
 @st.cache_resource(show_spinner=False)
 def load_data():
-    with st.spinner(text="Loading and indexing the Eurostar docs."):
+    with st.spinner(text="Loading data ..."):
         docs = SimpleDirectoryReader(input_dir="./html_files", recursive=True).load_data()
         llm = OpenAI(model="gpt-4o", 
                      temperature=0.0,
@@ -56,6 +56,8 @@ if st.session_state.messages[-1]["role"] != "assistant":
             print(f"source dir-> {dir(response.source_nodes[1])}")
             print(f"text-> {response.source_nodes[1].text}")
             print(f"metadata-> {response.source_nodes[1].metadata['file_name']}")
-            st.write(response.response)
+            metadata = response.source_nodes[0].metadata['file_name']
+            metadata2 = response.source_nodes[1].metadata['file_name']
+            st.write(f"{response.response}  \n\n[{metadata}](https://jonfernandes.github.io/eurostar/{metadata})  \n[{metadata2}](https://jonfernandes.github.io/eurostar/{metadata2})")
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) 
