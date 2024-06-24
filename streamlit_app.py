@@ -51,6 +51,11 @@ if st.session_state.messages[-1]["role"] != "assistant":
         with st.spinner("Retrieving data ..."):
             response = st.session_state.chat_engine.chat(prompt)
             print(f"response-> {response}")
+            print(f"source[0] -> {response.source_nodes[0]}")
+            print(f"source[1] -> {response.source_nodes[1]}")
+            print(f"source dir-> {dir(response.source_nodes[1])}")
+            print(f"text-> {response.source_nodes[1].text}")
+            print(f"metadata-> {response.source_nodes[1].metadata['file_name']}")
             st.write(response.response)
             message = {"role": "assistant", "content": response.response}
             st.session_state.messages.append(message) 
