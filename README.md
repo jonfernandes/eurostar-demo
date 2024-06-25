@@ -16,6 +16,12 @@ Instead of trying to implement a complicated chunking strategy (e.g. splitting b
 - Chunk data at 1000 tokens with an overlap of 200.
 - Chunk data at 6000 tokens. Many embedding models have a context length of 8192 so viable.
 
+### Embeddings
+Important to check on MTEB (Massive Text Embedding Benchmark) to determine which embeddings models are performant.
+
+### Reranking
+Used a re-ranker to improve on the retrieval step.
+
 ## Results of unit testing
 https://docs.google.com/spreadsheets/d/1UQ3cscKfnj9avwbkEuib7aXN5C7Y8gbDuYo3H_mDa2Q/edit?usp=sharing
 
@@ -29,3 +35,5 @@ https://docs.google.com/spreadsheets/d/1UQ3cscKfnj9avwbkEuib7aXN5C7Y8gbDuYo3H_mD
     - Policy check
     - Fact checking
 
+- Hybrid search
+- Don't display source links if the questions are irrelevant
