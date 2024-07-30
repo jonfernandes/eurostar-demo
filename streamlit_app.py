@@ -5,6 +5,7 @@ from llama_index.core import VectorStoreIndex, ServiceContext, SimpleDirectoryRe
 from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.postprocessor.cohere_rerank import CohereRerank
+import asyncio
 
 st.set_page_config(page_title="Eurostar chatbot", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.OPENAI_KEY
@@ -30,7 +31,7 @@ async def guardrails(input_text):
         return "An error occurred while processing your request."
 
 
-def main():
+async def main():
     if "messages" not in st.session_state.keys(): 
         st.session_state.messages = [
             {"role": "assistant", "content": "Write a message ..."}
@@ -88,4 +89,4 @@ def main():
                 st.session_state.messages.append(message) 
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
