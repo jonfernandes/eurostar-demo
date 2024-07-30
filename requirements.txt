@@ -6,3 +6,5 @@ llama-index-postprocessor-cohere-rerank
 cohere
 nltk
 pypdf
+nemoguardrails
+langchain-openai

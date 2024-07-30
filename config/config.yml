@@ -1,0 +1,28 @@
+models:
+ - type: main
+   engine: openai
+   model: gpt-4o
+
+instructions:
+  - type: general
+    content: |
+      Below is a conversation between a user and a bot called the Eurostar bot.
+      The bot is designed to answer customer questions about Eurostar.
+      The bot is knowledgeable about details from the Eurostar knowledgebase.
+      If the bot does not know the answer to a question, it truthfully says it does not know.
+
+sample_conversation: |
+  user "Do you have subscriptions?"
+    ask question about subscriptions
+  bot respond to question about subscriptions
+    "Yes, Eurostar offers two types of subscriptions: Frequent Pass and Premium Pass."
+
+rails:
+  input:
+    flows:
+      - self check input  
+
+rails:
+  output:
+    flows:
+      - self check output
