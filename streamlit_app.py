@@ -6,6 +6,14 @@ from llama_index.embeddings.openai import OpenAIEmbedding
 from llama_index.core.node_parser import SentenceSplitter
 from llama_index.postprocessor.cohere_rerank import CohereRerank
 import asyncio
+import nest_asyncio
+nest_asyncio.apply()
+
+import os
+from nemoguardrails import RailsConfig, LLMRails
+
+config = RailsConfig.from_path("./config")
+rails = LLMRails(config)
 
 st.set_page_config(page_title="Eurostar chatbot", layout="centered", initial_sidebar_state="auto", menu_items=None)
 openai.api_key = st.secrets.OPENAI_KEY
@@ -76,17 +84,22 @@ async def main():
     if st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Retrieving data ..."):
-                response = st.session_state.chat_engine.chat(prompt)
-                print(f"response-> {response}")
-                print(f"source[0] -> {response.source_nodes[0]}")
-                print(f"source[1] -> {response.source_nodes[1]}")
-                #print(f"text-> {response.source_nodes[1].text}")
-                #print(f"metadata-> {response.source_nodes[1].metadata['file_name']}")
-                metadata = response.source_nodes[0].metadata['file_name']
-                metadata2 = response.source_nodes[1].metadata['file_name']
-                st.write(f"{response.response}  \n\n**Data source:**  \n[1] [{metadata}](https://jonfernandes.github.io/eurostar/{metadata})  \n[2] [{metadata2}](https://jonfernandes.github.io/eurostar/{metadata2})")
-                message = {"role": "assistant", "content": response.response}
-                st.session_state.messages.append(message) 
+                if "I'm sorry, I can't respond to that." in guard_result:
+                    st.write("I'm sorry, I can't respond to that.")
+                    message = {"role": "assistant", "content": "I'm sorry I can't respond to that"}
+                    st.session_state.messages.append(message) 
+                else: 
+                    response = st.session_state.chat_engine.chat(prompt)
+                    print(f"response-> {response}")
+                    print(f"source[0] -> {response.source_nodes[0]}")
+                    print(f"source[1] -> {response.source_nodes[1]}")
+                    #print(f"text-> {response.source_nodes[1].text}")
+                    #print(f"metadata-> {response.source_nodes[1].metadata['file_name']}")
+                    metadata = response.source_nodes[0].metadata['file_name']
+                    metadata2 = response.source_nodes[1].metadata['file_name']
+                    st.write(f"{response.response}  \n\n**Data source:**  \n[1] [{metadata}](https://jonfernandes.github.io/eurostar/{metadata})  \n[2] [{metadata2}](https://jonfernandes.github.io/eurostar/{metadata2})")
+                    message = {"role": "assistant", "content": response.response}
+                    st.session_state.messages.append(message) 
 
 if __name__ == "__main__":
     asyncio.run(main())
