@@ -1,6 +1,6 @@
 streamlit
 openai
-llama-index==10.0.0
+llama-index==10.40.0
 llama-index-llms-openai
 llama-index-postprocessor-cohere-rerank
 cohere
