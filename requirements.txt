@@ -8,3 +8,4 @@ nltk
 pypdf
 nemoguardrails
 langchain-openai
+llama-index-readers-web
